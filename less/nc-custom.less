@@ -1,0 +1,638 @@
+// NC-specific CSS Styles
+// --------------------------------------------------
+
+// ALL FORMS
+//----------
+
+// OVERWRITES
+//------------
+.help-block,
+.help-inline {
+  color: @grayLight; // lighten the text more than Bootstrap default
+}
+.help-block {
+  margin-top: 5px;
+  margin-bottom: 0;
+  
+}
+
+.form-actions {
+  padding: (@baseLineHeight - 3) 3px @baseLineHeight;
+  margin-top: @baseLineHalf;
+  margin-bottom: @baseLineHalf;
+	}
+
+label {
+color: @grayDark;
+	}
+
+//-- END OVERWRITES
+
+
+// FORMS
+//------
+// add focus (tabbing) outline
+button:focus {
+  border-color: rgba(0,0,0,.8);
+  @shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  .box-shadow(@shadow);
+
+  // Default
+  outline: 1px dotted rgba(0,0,0,.8);
+  // Webkit
+  outline: 1px auto dotted;
+	}
+
+// NC custom color for tooltip links with no href (on form)
+.tooltip-link {
+	color: @textColor;
+	text-decoration:none;
+	border-bottom: 1px dotted @textColor;
+}
+
+// NC-addendum or alternative to form actions bar?	
+.task-actions {
+	padding: (@baseLineHeight - 6) (@baseLineHeight - 6) @baseLineHeight;
+}
+	
+// MIXIN	
+//------
+// Nav Current item Border highlight
+.navcurrentborder () {
+  border-top: 3px solid @navbarActiveBorderColor;
+  line-height: (@navbarHeight);
+  margin-top: -3px;
+}	
+	
+// NAVBAR
+//--------
+.navbar {
+  border-bottom: 1px solid @navbarBorderBottom;
+  border-top: 3px solid @navbarBorderTop;
+  margin-bottom: 0;
+}	
+.navbar-inner {	
+  background-color: (@navbarBackground);
+  // NC- find a way to turn off gradient (and unbloat code)
+  #gradient > .vertical(@navbarBackground, @navbarBackground);
+  }
+
+// removed previously 2.0.1 (might not be used)
+.navbar-search .search-query:hover {
+	color: @white;
+      background-color: @grayLight;
+      background-color: rgba(255,255,255,.5);
+	}
+
+// NC- Might not be needed
+.navbar .nav > li {
+  line-height: @navbarHeight;
+ }	
+
+.navbar .nav > li > a {
+	line-height: @navbarHeight;
+	padding: 0 @baseLineHeight;
+	text-shadow: 0 -1px rgba(255,255,255,0.2);
+}
+
+// NC addition: undo border on profile name
+.navbar .pull-right .nav > li > a {
+	border-left:none;
+	
+	}
+	
+ .navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  border-left: none; // NC: addition
+}
+
+// Pressed navbar links
+.navbar .nav > li >  a:active { 
+  background-color: @navbarPressedBackgroundColor;
+  }
+
+
+// NC custom SubNav
+// -----------------
+.subnavbar {
+  overflow: visible;
+// margin-bottom: @baseLineHeight;
+  border-bottom: 1px solid @navbarBorderBottom;
+  border-top: 0px;
+}
+
+.subnav-inner {
+  background-color: @subnavBackgroundColor;
+  @shadow: 0 1px 3px rgba(0,0,0,.25);
+  .box-shadow(@shadow);
+}
+
+.subnav-inner-heighted {
+  height: @navbarHeight;
+  background-color: @subnavBackgroundColor;
+  @shadow: 0 1px 3px rgba(0,0,0,.25);
+  .box-shadow(@shadow);
+}
+
+.nc-level-subnav {
+	line-height: @navbarHeight;
+	margin: @baseFontSize 20px 0px 20px;
+	width: 200px;
+	}
+.navHeight {
+	line-height: @navbarHeight;
+	}
+	
+// NC-custom Submenu Links
+// -----------------------
+
+.subnavbar .nav > li > a {
+  color: @subnavLinkColor;
+  text-decoration: none;
+}
+// Hover
+.subnavbar .nav {
+	h1, h2, h3, h4, h5, h6 
+	{
+	margin-top: 0px;
+	padding-top: 0px;
+	}	
+}
+
+// Pressed navbar links
+.navbar .nav > li >  a:active { 
+  background-color: @navbarPressedBackgroundColor;
+  }
+
+// Active nav items
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover {
+  color: @navbarLinkColorActive;
+  text-decoration: none;
+  background-color: @navbarLinkBackgroundActive;
+  .navcurrentborder();
+  /*  text-shadow: 0 -1px 0 rgba(0,0,0,.25); */
+}
+
+// END NC-SUBMENU	 
+  	
+// (LEVEL) NAVS (specific to customer ui)	
+//-----------
+// bundled nav active and Level highlight
+.nav-list > li > a,
+.nav-list .nav-header, .nc-level {
+// display: block; NC- Might not need this
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}	
+.nav-list .active > a, .nav-list .nc-level {
+	background-color: none;
+	text-shadow: none;
+	color: inherit;
+	}	
+// Fix button alignment inside LEVEL's <li> to continue level
+.level-btn {
+	margin-top: @baseLineHalf;
+	margin-left: 15px;
+}
+
+// TASK FLOW NAVS
+//---------------
+
+// NC custom task flow ul (similar to nav but has no anchor links)
+.task-flow {
+  margin-left: 0;
+  margin-bottom: @baseLineHeight;
+  list-style: none;
+  .clearfix();
+}
+
+// Make links block level
+.task-flow > li {
+  display: block;
+  padding: 5px 12px;
+  margin-right: 2px;
+  margin-top: -1px; 
+  border: 1px solid #ddd;
+  .border-radius(0);
+  color: @gray;
+}
+.task-flow > li:first-child {
+  .border-radius(4px 4px 0 0);
+}
+.task-flow > li:last-child {
+  .border-radius(0 0 4px 4px);
+}
+.task-flow > li.current-task {
+// Google-like bar on left:	
+//	border-left: 4px solid @linkColor;
+//	padding-left: 8px;
+	color: @textColor;
+	background-color: @grayLighter;
+	}
+
+// TYPE
+//------
+// NC reduce size of links nested in headings
+  .h2linker {
+	font-size: @baseFontSize;
+	font-weight: normal;
+  }
+
+// UTILITIES
+//----------
+// smarter hide for when you want the text to be read by screen readers, etc.
+.visuallyhide {
+position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}		
+
+// WINDOWS RESULTS ONLY (currently)
+//----------------
+
+.score-big, .score-small {
+	line-height: 120px;
+	color: @grayLight;
+	}
+.score-big {
+	font-size: 120px;
+	font-weight:300;
+}
+.score-small {
+	font-size: 40px;
+	}	
+
+/*  
+disable tactics
+body {
+	
+// Disable UI of text selection, buttons, etc
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+// disable dragging images, etc "REFACTOR" if drag actions take place in test
+  -webkit-user-drag: none; 
+  -moz-user-drag: none; 
+  user-drag: none;
+
+}
+// undo selection of input fields
+input {
+-webkit-user-select: text;
+-khtml-user-select: text;
+-moz-user-select: text;
+-o-user-select: text;
+user-select: text;
+}
+
+*/
+
+// Active View of Game Play
+
+//html, body {
+//	height: 100%;
+//}
+
+// the main wrapper for canvas
+.play-height {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -(@navbarHeight + 20px); /* the bottom margin is the negative value of the footer's height *** add more when containers have margin or padding */ 
+	padding-top: 20px;
+}
+
+// bottom margin simulator and controls bar height
+.play-docker, .push {
+	height: @navbarHeight; /* .push must be the same height as .footer */
+	clear: both;
+	
+}
+// sticky footer when body 100%
+.play-docker {
+  line-height: @navbarHeight;
+  background-color: (@navbarBackground);
+  @shadow: 0 1px -3px rgba(0,0,0,.25);
+  .box-shadow(@shadow);
+  p {
+	  line-height: @navbarHeight;
+	  margin: 0;
+	  }
+}
+
+.play-dock {
+	position: absolute;
+	bottom: 0;
+	min-width:100%;
+	}
+body.playbody-min {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top:0;
+	bottom:0;
+	min-height: 575px; // gameCanvas height + footer height
+	min-width: 960px; // Match with size of play-canvas so that small screens see a full footer
+	
+	}
+// No bootstrap grid!  Remember that padding and borders add to the usable space of the canvas
+.play-canvas {
+	position: relative;
+  width: 960px;
+//  padding:19px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  .border-radius(4px);
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+}
+.play-border {
+  position: absolute;
+  top: -21px;
+  left: -21px;
+  width: 1002px;
+  height: 562px;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  .border-radius(4px);
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  z-index: @zindexPlayShadow;  
+	}
+
+#gameCanvas {
+	background-color: @blue;
+	vertical-align:bottom; // fixes mysterious bottom margin
+	width: 960px;
+	height: 520px;
+	}
+	
+.big-stimulus-box-CENTER {
+	position: absolute;
+	top: 0px;
+	left: 220px;
+	height: 520px;
+	width: 520px;
+	background-color: red;
+	}
+	
+.big-stimulus-box-overwriteLEFT {
+	left: 0px;
+	}	
+	
+
+	
+.stimulus {
+	position: absolute;
+	top: 100px;
+	left:100px;
+	width:320px;
+	height: 320px;
+	background-color: white;
+	}
+
+.column1-right {
+	background-color:pink;
+	position: absolute;
+	top:0;
+	left: 520px;
+	width:220px;
+	height: 520px;
+	}
+.column1-left {
+	background-color:pink;
+	position: absolute;
+	top:0;
+	left: 0px;
+	width:220px;
+	height: 520px;
+	}
+	
+.column-button {
+	height:100px;
+	width: 200px;
+	background-color: #ccc;
+	margin: 5px auto;
+	}	
+
+// --------- END gamelpay classes
+
+// LEVEL view contents
+
+// Task-size container to constrain the border of thumbnail outline to max width (make same size as image original width)
+.task-inlevel {
+	max-width:480px;
+	margin-bottom: @baseLineHeight;
+	}
+
+// The span4 that holds the image must be positioned relative to overlay the image 
+.task-image {
+	position: relative;
+}
+
+// the icon or text that resides over task image
+.task-mask {
+//	width: auto;
+	height: auto;
+	padding: @baseFontSize 0 @baseFontSize @baseFontSize;
+	position: absolute;
+	bottom: 2px; // compensate for padding erase & set top = 0 if docking to top
+	left: 0;
+	right:0;
+	background-color: @yellow;
+	color: @textColor !important; //override hover links
+	}
+	
+.task-inlevel .caption {
+	min-height:200px;
+//	margin-bottom: @baseLineHeight;
+//	max-height:200px;
+//	overflow: auto;
+//	margin-top: -9px;  same as padding of caption in thumbnails.less
+	} 
+	
+.task-inlevel .task-select  {
+display:block;
+width: 100%;
+padding: 0 0 @baseLineHeight;
+margin-bottom: @baseLineHalf;
+}
+
+.history-list a img {
+	margin-bottom: -2px;
+	}
+	
+// OTHER THINGS	
+	
+// Undo the left + right margin for masthead, containers, and other forced whitespace.
+.margincruncher {
+	margin: 0 -20px;
+	}
+
+.well-unpad {
+	padding: 19px 0px;
+	margin-left: -1px;
+	margin-right: -1px;
+	}
+
+// below NOT IN USE
+.outdent {
+	margin-left: -20px;
+	}
+
+.masthead {
+	background-color: @mastheadBackgroundColor;
+	padding: 60px 20px;
+	margin: 0px -20px 40px;
+ 	box-shadow: 0pt -2px 4px rgba(0, 0, 0, 0.2) inset;
+    
+    .mastmessage {
+    font-size: 22px;
+    line-height: 1;
+	font-weight: 300;
+	}
+}
+
+.masthead h1 {
+    margin-bottom: @baseLineHeight;
+    font-size: 60px;
+    letter-spacing: -1px;
+    line-height: 60px;
+    font-weight: bold;
+    color: @grayDark;
+    }
+
+// Heading for UL footer sitemap
+.footer-list, {	
+  font-size: 12px;
+  font-weight: bold;
+  line-height: @baseLineHeight;
+  color: @grayLight;
+  text-transform: uppercase;
+}
+// Headings for Forms (email, password, etc)
+.control-label {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: @baseLineHeight;
+  color: @gray;	
+}
+
+// Give the footer some whitespace below
+footer {
+	padding-bottom: @baseLineDouble;
+	font-size: 12px;	
+	color: @grayLight;
+//	a { color: @grayLight } de-styles link colors (poor visibility?)
+	}
+
+// Centered a block container element without forcing margin during small responsive size (FOR login, signup, etc)
+.custommini {
+	width:440px;
+margin: @baseLineDouble auto;
+	}
+// form inputs stretch to the width of custommini block, to match right-aligned buttons
+.fullwidth-input {
+width: 98%;	
+}
+
+// Used to space navbar from lower content (when not masthead or headers to start)
+.baseLineMarginTop {
+	margin-top: @baseLineHeight;
+	}
+	
+// NavBar USER info grouped - Not in use
+// .user-display
+//{
+//	height: 100%; 
+//	}
+
+.avatar
+{
+	vertical-align: middle;
+	padding-right: 10px;
+	
+	}
+.username, .level-bar-right
+{ 
+//	float: right;
+	display:inline-block;
+	line-height: @baseLineHeight;
+	overflow: hidden;
+	width:200px;
+	vertical-align: middle;
+	}
+	
+.level-bar-right {
+	float: right;
+	margin-left: 20px;
+	}
+
+
+// IMAGES
+//-----------
+// explictly describe icon image url -- 32x32 or 30x30 size -- Currently used by singup verified checkbox
+
+.nc-icon {
+	float: left;
+	margin:10px 15px 0px 0px;
+	opacity: 0.8;
+}
+
+.task-picker,
+.task-complete {
+	border: 1px solid @textColor;
+	border-radius: 6px;
+	}
+
+// Sidebar classes
+// -----------------
+
+
+// Previously .sidebar-wrapper > .sidebar-nav, but it works without specificity
+.sidebar-nav {
+    position: relative;
+    top: 0;
+    left:auto;
+    width: 260px;
+// Used when not Floating middle 3-column content
+// 	height: 0; Fixes the sidebar float knocking content below sidebar 
+//	margin-bottom: @baseLineHeight;
+
+}
+
+.sidebar-nav > div, .sidebar-nav > ul {
+	margin-bottom: @baseLineHeight;
+}
+
+// Sidebar Left
+.fixed-fluid {
+    margin-left: 280px;
+}
+
+// Sidebar Right
+.fluid-fixed {
+    margin-right: 280px;
+    margin-left:auto !important;
+}
+
+// Sidebar Left + Right (using both)
+.fixed-fixed {
+ margin: 0 280px;
+ width: auto;
+}
+
+.fixed-fixed, .fluid-fixed, .fixed-fluid  {
+	.row-fluid {
+	 	float:left;
+	 	margin-bottom: @baseLineHeight;
+	}
+}

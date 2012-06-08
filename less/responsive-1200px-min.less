@@ -24,3 +24,23 @@
   }
 
 }
+
+// NC-specifically max-out the width
+
+@media (min-width: 1600px) {
+	
+// Set a max fluid size	
+.row-fluid {
+	max-width: 1600px;
+	margin: auto;
+	}
+hr {
+	max-width:1600px;
+	margin: 22px auto;
+	}	
+
+center rows that are not fluid and compensate for previous margins
+.row {
+	max-width:1660px; // add the margin-left of 30px into account
+	}	
+}

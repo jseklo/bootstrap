@@ -71,20 +71,21 @@
 @media (max-width: 767px) {
 
   // Padding to set content in a bit
-  body {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  // Negative indent the now static "fixed" navbar
-  .navbar-fixed-top,
-  .navbar-fixed-bottom {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-  // Remove padding on container given explicit padding set on body
-  .container-fluid {
-    padding: 0;
-  }
+// NC-removed
+//  body {
+//    padding-left: 20px; 
+//    padding-right: 20px;  
+//  }
+//  // Negative indent the now static "fixed" navbar
+//  .navbar-fixed-top,
+//  .navbar-fixed-bottom {
+//    margin-left: -20px;
+//    margin-right: -20px;
+//  }
+//  // Remove padding on container given explicit padding set on body
+//  .container-fluid {
+//    padding: 0;
+//  }
 
   // TYPOGRAPHY
   // ----------
@@ -145,5 +146,37 @@
     display: inline-block; // redeclare so they don't wrap to new lines
     width: auto;
   }
+
+
+// ALL NC-custom below
+
+// Float both sidebars left 
+ .sidebar-nav.pull-left, .sidebar-nav.pull-right {
+	 margin-bottom: @baseLineHeight;
+	 float: left;
+	 margin-right: 20px;
+ }
+ 
+// NC_custom No margins on center content after collapse
+.fixed-fixed {
+	margin-left: 0px;
+	margin-right: 0px;
+	clear: both;
+
+	}
+
+.fixed-fluid {
+    margin-left:0px;
+}
+	
+// Collapse height of tasks in level view
+.task-inlevel .caption {
+	min-height: 0px;
+}	
+
+// NC_admin 
+form.divider-right {
+	border-right: 0px;
+}
 
 }

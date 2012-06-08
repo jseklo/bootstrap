@@ -1,0 +1,199 @@
+// NC_admin specific CSS Styles
+// --------------------------------------------------
+
+// center titles and make room on the right for (background) arrow
+.nc-table thead th {
+	padding-right: 15px;
+	vertical-align: middle;
+	}
+
+// Makes headings not drop below typical flow
+.title-flushtop {
+	padding-top: 0px;
+	padding-bottom: 9px;
+	display:inline-block;
+	}
+//enable an input to be on the same line as a heading "create [] new subjects"
+.inline-input {
+	display: inline;
+	width: 50px;
+	}
+
+// Combined pull-rights have a little padding between each other
+.btn.pull-right + .btn.pull-right {
+	margin-right: 5px;
+	}
+// Small title (metadata titles/bouts, stats item)	
+.gray-title {
+	color: @grayLight;
+	font-weight: bold;
+	font-size: 11px;
+	margin-top: @baseLineHalf;
+	}
+	
+// 	Horizontal stats (used on Export screen)
+ul.stats { 
+	margin: 0px;
+	}
+	
+ul.stats li {
+	float: left;
+    list-style-type: none;
+    margin-right: 30px;
+    min-width: 60px;
+	}
+	
+ul.stats li strong { display : block;
+  	font-size: 36px;
+  	}	
+
+.nc_admin_drop {
+	width: 100%;
+	}
+.nc_admin_drop b.caret {
+	float:right;
+	}
+	
+// region on the right of breadcrumbs for delete/chart view	
+.delete {
+  padding: 1px 3px 2px;
+  font-size: @baseFontSize * .65;
+  font-weight: bold;
+  text-transform: uppercase;
+
+}
+
+// NC_ might be worth making universal 
+// labels with links inside  
+ a.label, a:link.label ,  a:visited.label, a:hover.label{
+	color: @white;
+	text-decoration: none;
+}
+a:hover.label {
+	background-color: @red;	
+	text-decoration: none;
+	}
+
+
+// inputs for numerical ordering (fixes width to specific size for two digits in length)
+.nc_order-input {
+  width: 1.5em;
+  }
+  
+
+// NC_admin for dividing the column to visually separate CSV import
+form.divider-right {
+	border-right: 1px solid @grayLighter;
+}
+
+
+// used for editing (full-width input fields)
+.smart-well {
+  min-height: 20px;
+  padding: 19px 0px;
+  margin-bottom: 20px;
+  margin: 0px -1px 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  .border-radius(4px);
+  .box-shadow(inset 0 1px 1px rgba(0,0,0,.05));
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+// unwelled standalone button holder for save/cancel
+.nc_form-actions {
+  padding: (@baseLineHeight - 3) @baseLineHeight @baseLineHeight;
+  margin-top: @baseLineHalf;
+  margin-bottom: @baseLineHalf;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  .clearfix();
+  .pull-right {
+    float: right;
+    margin: 5px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+}
+// top-aligned save/cancel bar
+.nc_form-actions-top {
+  padding: (@baseLineHeight - 3) @baseLineHalf @baseLineHeight;
+  margin-top: @baseLineHalf;
+  margin-bottom: @baseLineHalf;
+  background-color: #f5f5f5;
+  border-top: 0px;
+  border-bottom: 1px solid #ddd;
+  .clearfix();
+  .btn {
+    
+    margin: 5px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+}
+
+// NC_admin datatables specific CSS Styles for bootstrap
+// --------------------------------------------------
+
+div.dataTables_length label {
+  float: left;
+  text-align: left;
+}
+
+div.dataTables_length select {
+  width: 75px;
+}
+
+div.dataTables_filter label {
+  float: left;
+}
+
+div.dataTables_info {
+  padding-top: 8px;
+}
+
+div.dataTables_paginate {
+  float: right;
+  margin: 0;
+}
+
+table.table {
+  clear: both;
+  margin-bottom: 6px !important;
+}
+
+table.table thead .sorting,
+table.table thead .sorting_asc,
+table.table thead .sorting_desc,
+table.table thead .sorting_asc_disabled,
+table.table thead .sorting_desc_disabled {
+  cursor: pointer;
+  *cursor: hand;
+}
+
+table.table thead .sorting { background: url('../images/sort_both.png') no-repeat center right; }
+table.table thead .sorting_asc { background: url('../images/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('../images/sort_desc.png') no-repeat center right; }
+
+table.table thead .sorting_asc_disabled { background: url('../images/sort_asc_disabled.png') no-repeat center right; }
+table.table thead .sorting_desc_disabled { background: url('../images/sort_desc_disabled.png') no-repeat center right; }
+
+
+table.dataTable th:active {
+  outline: #B0C4DE groove thin;
+}
+table.dataTable th:hover {
+  background-color: #F9F9F9;
+}
+
+// NC_admin chart specific CSS Styles 
+// --------------------------------------------------
+
+#chart-container {
+  max-width: auto; 
+  height: 400px; 
+  margin: 0 auto
+}
+

@@ -15,7 +15,8 @@
 @grayDark:              #333;
 @gray:                  #555;
 @grayLight:             #999;
-@grayLighter:           #eee;
+@grayLighter:           #ddd; // NC-Changed
+@grayLightest:          #eee; // NC-Changed
 @white:                 #fff;
 
 
@@ -39,7 +40,7 @@
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             #07b; // NC-Changed
 @linkColorHover:        darken(@linkColor, 15%);
 
 
@@ -53,6 +54,12 @@
 @baseFontFamily:        @sansFontFamily;
 @baseLineHeight:        18px;
 @altFontFamily:         @serifFontFamily;
+// NC-additions
+@baseLineHalf:			(@baseLineHeight / 2);
+@baseLineQuarter:		(@baseLineHeight / 4);
+@baseLineDouble:		(@baseLineHeight * 2);
+@baseLineTriple:		(@baseLineHeight * 3);
+
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
@@ -125,7 +132,8 @@
 @zindexFixedNavbar:       1030;
 @zindexModalBackdrop:     1040;
 @zindexModal:             1050;
-
+// NC-custom: to set border area behind canvas element without margin (consumer only)
+@zindexPlayShadow:		-1000;
 
 // Sprite icons path
 // -------------------------
@@ -143,18 +151,27 @@
 @hrBorder:                @grayLighter;
 
 
-// Navbar
+// Navbar NC-Changed (many modifications)
 // -------------------------
-@navbarHeight:                    40px;
-@navbarBackground:                @grayDarker;
-@navbarBackgroundHighlight:       @grayDark;
+@navbarHeight:                    55px;  
+@navbarBackground:                @grayLightest;
+@navbarBackgroundHighlight:       @white;
+@navbarBorderBottom:			  @grayLight;
+@navbarBorderTop:				  @grayLight;
+// @navbarLinkPadding:				  27px;
+// @navbarPadding:					  12px;
 
-@navbarText:                      @grayLight;
-@navbarLinkColor:                 @grayLight;
-@navbarLinkColorHover:            @white;
-@navbarLinkColorActive:           @navbarLinkColorHover;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarText:                      @grayDark;
+@navbarLinkColor:                 @gray;
+@navbarLinkColorHover:            @gray;
+@navbarLinkBackgroundHover:		  @grayLighter;
+@navbarLinkColorActive:			  @black;
+@navbarLinkBackgroundActive:	  @white;
+@navbarActiveBorderColor:		  @grayDarker;
+
+@navbarPressedBackgroundColor:	  lighten(@blue, 40%); 
+// END NC-navbar changes
 
 @navbarSearchBackground:          lighten(@navbarBackground, 25%);
 @navbarSearchBackgroundFocus:     @white;
@@ -162,12 +179,20 @@
 @navbarSearchPlaceholderColor:    #ccc;
 @navbarBrandColor:                @navbarLinkColor;
 
+// NC-additions
+@subnavBackgroundColor:			  @grayLighter;
+@subnavLinkColor:			 	  @gray;
+
 
 // Hero unit
 // -------------------------
 @heroUnitBackground:              @grayLighter;
 @heroUnitHeadingColor:            inherit;
 @heroUnitLeadColor:               inherit;
+
+// NC-Masthead  (customer specific?)
+//------------
+@mastheadBackgroundColor:		  @grayLighter;
 
 
 // Form states and alerts
@@ -184,7 +209,7 @@
 @successBackground:       #dff0d8;
 @successBorder:           darken(spin(@successBackground, -10), 5%);
 
-@infoText:                #3a87ad;
+@infoText: 				  @gray; // NC-Changed
 @infoBackground:          #d9edf7;
 @infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
